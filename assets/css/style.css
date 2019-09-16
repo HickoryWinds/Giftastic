@@ -1,0 +1,30 @@
+/*----------------
+ style elements
+ -------------- */
+ 
+ body {
+     background-color: yellow;
+     
+    }
+
+label {
+    background-color: purple;
+}
+    
+    /*----------------
+     style classes
+     -------------- */
+    .text {
+        text-align: center;
+        background-color: green;
+        border: 5px solid beige;
+    }
+
+    .button {
+        font-weight: bold;
+        background-color: coral;
+    }
+
+    /*----------------
+     style ids
+     -------------- */

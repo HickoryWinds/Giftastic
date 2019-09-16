@@ -1,0 +1,57 @@
+<!DOCTYPE html lang="us-en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Giftastic</title>
+        <!-- make viewable on all devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Meyer css reset -->
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <!-- Latest compiled and minified CSS 4.0-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <!-- link to bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <!-- link to local stylesheet  -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+    <body>
+        <!-- responsive container -->
+        <div class="container">
+            <!-- one row containing three columns -->
+            <div class="row">
+                <!-- left side spacer column -->
+                <div class="col-sm-2 text"><p>left side</p></div>
+                <!-- column for buttons and gifs -->
+                <div class="col-sm-8 text">
+                    <p>middle</p>
+                    <!-- banner -->
+                    <h1>Happy Holidays!</h1>
+                    <!-- div for buttons -->
+                    <div id="show-buttons"></div>
+                    <!-- form to add buttons -->
+                    <form id="add-topic">
+                        <label for="add-topic">Add a Giphy in a Jiffy</label>
+                        <input type="text" id="topic-input">
+                        <br>
+                        <!-- trigger button to add topic -->
+                        <input id="add-topic-btn" class="button" type="submit" value="Add a Giphy">
+                    </form>
+                    <!-- div to show gifs -->
+                    <div id="display-gifs"></div>
+
+                </div>
+                <!-- right side spacer column -->
+                <div class="col-sm-2 text"><p>right side</p></div>
+
+            </div>
+
+        </div>
+        
+        
+        <script src="assets/javascript/app.js" async defer></script>
+    </body>
+</html>
