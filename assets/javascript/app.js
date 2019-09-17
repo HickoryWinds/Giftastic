@@ -59,7 +59,7 @@ function processMovie() {
             // variable for div creation
             var giffy = $("<div>");
             // variable for p creationg
-            var para = $("<p>").text("Rating " + rating);
+            var para = $("<p>").text("Rating: " + rating);
             // variable to create img
             var image = $("<img>");
             // variable to hold rating for each gif
@@ -97,3 +97,16 @@ $(document).on("click", ".gif", function() {
 
 })
 
+// changeColor alternates background color and text color for banner
+function changeColor() {
+    if ($("h1").css("background-color") == "rgb(255, 0, 0)") {
+        $("h1").css("background-color", "blue");
+        $("h1").css("color", "white");
+    }
+    else {
+        $("h1").css("background-color", "red");
+        $("h1").css("color", "yellow");
+    }
+}
+// start changeColor
+setInterval(changeColor, 3000);

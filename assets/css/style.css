@@ -3,12 +3,30 @@
  -------------- */
  
  body {
-     background-color: yellow;
+     background-color: burlywood;
      
     }
 
 label {
-    background-color: purple;
+    font-weight: bolder;
+    background-color: aquamarine;
+    border: 2px solid bisque;
+}
+
+p {
+    text-align: center;
+    font-weight: bolder;
+    color: wheat;
+    background-color: red;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h1 {
+    font-family: serif;
+    color: yellow;
+    background-color: red;
+    border: 5px solid purple;
 }
     
     /*----------------
@@ -25,6 +43,8 @@ label {
         background-color: coral;
     }
 
-    /*----------------
-     style ids
-     -------------- */
+    .topic-btn {
+        font-weight: bold;
+        background-color: rosybrown;
+        border: 2px solid beige;
+    }
