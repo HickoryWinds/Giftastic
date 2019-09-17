@@ -23,40 +23,60 @@ function displayButtons() {
     }
 }
 
-// createNewButton adds new button to topics list when form submitted
-// function createNewButton() {
-//     console.log("here I am");
-//     // allow for form submission using enter button
-//     // event.preventDefault();
-//     // get input from topic-input text box; trims leading/ending spaces
-//     var new_topic = $("#topic-input").val().trim();
-//     // add topic-input to topics array
-//     topics.push(new_topic);
-//     console.log("created " + topics);
-//     // show new button by rewriting buttons
-//     // displayButtons();
-// }
-
-// add event handler to listen for clicks on topic buttons
-// $(document).on("click", ".topic-btn", processMovie);
-
-
-// add topic by submission through form
-// $("#add-topic-btn").on("click", createNewButton);
-// $("#add-topic-btn").on("click", console.log("got clicked"));
-
+// add function via add-topic-btn to add button to list
 $("#add-topic-btn").on("click", function(event) {
-        console.log("here I am");
         // allow for form submission using enter button
         event.preventDefault();
         // get input from topic-input text box; trims leading/ending spaces
         var new_topic = $("#topic-input").val().trim();
         // add topic-input to topics array
         topics.push(new_topic);
-        console.log("created " + topics);
         // show new button by rewriting buttons
         displayButtons();
     });
     
+    // add click event to all images for displaying topic gifs
+    $(document).on("click", ".topic-btn", processMovie);
     // intial call to display buttons
     displayButtons();
+
+    function processMovie() {
+        // get topic for gifs to be retrieved
+        var got_topic = $(this).attr("topic");
+        // create giphy api search string with api key and limit of 10 gifs retrieved
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+            got_topic + "&api_key=tiqUaUBX3u8WwTeMQK4mUBb2X8AdvqPa&limit=10";
+        // perform ajax query
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+        // set up response when promise completed
+        .then(function(response) {
+            // store results (all 10) from website in variable
+            var results = response.data;
+            // create divs for each of 10 gifs
+            for (var k = 0; k < results.length; k++) {
+                // variable for div creation
+                var giffy = $("<div>");
+                // variable for p creationg
+                var para = $("<p>").text("Rating " + rating);
+                // variable to create img
+                var image = $("<img>");
+                // variable to hold rating for each gif
+                var rating = results[k].rating;
+                // add class gif to image div
+                image.addClass("gif");
+                // add atrribute for giphy source to image div
+                image.attr("src", results[k].images.fixed_height_still.url);
+                // prepend p and img elements
+                giffy.prepend(image);
+                giffy.prepend(para);
+                // prepend div to display gif
+                $("#display-gifs").prepend(giffy);
+
+            }
+        });
+    }
+
+
